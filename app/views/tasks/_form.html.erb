@@ -1,0 +1,17 @@
+<%= form_with(model: [task.list, task], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_area :details %>
+  </div>
+
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
