@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   
   def show
    @list = List.find(params[:list_id])
@@ -31,7 +32,7 @@ class TasksController < ApplicationController
     end
   end
    
-  def destroy 
+  def destroy
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
     @task.destroy 
@@ -39,8 +40,8 @@ class TasksController < ApplicationController
   end
   
   private 
+
     def task_params
       params.require(:task).permit(:title, :details, :date)
     end
 end
-
