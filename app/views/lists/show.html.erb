@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @list.title %>
@@ -11,6 +9,9 @@
 <h1>Tasks</h1>
 <%= render partial: 'tasks/task', locals: {tasks: @list.tasks} %>
 <%= link_to 'New Task', new_list_task_path(@list) %>
+<%= link_to 'List', lists_path%>
+
+
 
 
 
