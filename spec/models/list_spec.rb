@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe List, type: :model do
-  describe "associations" do 
+  describe 'associations' do
     it 'should have many tasks' do
       is_expected.to have_many(:tasks)
     end

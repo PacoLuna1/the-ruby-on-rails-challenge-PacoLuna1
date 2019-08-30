@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { described_class.new(password: "some_password", email: "john@doe.com") }
+  subject { described_class.new(password: 'some_password', email: 'john@doe.com') }
 
   describe 'associations' do
     it 'has many lists' do
@@ -11,12 +11,12 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "Validations" do
-    context "when valid" do
-      it "needs to have a @ in the email" do
+  describe 'Validations' do
+    context 'when valid' do
+      it 'needs to have a @ in the email' do
         subject.email = 'expl@gmail'
         expect(subject).to be_valid
-      end 
+      end
       it 'Has password' do
         is_expected.to validate_presence_of(:email)
       end
@@ -28,20 +28,20 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "when no valid" do 
-      it "is not valid without a @ in the email" do
+    context 'when no valid' do
+      it 'is not valid without a @ in the email' do
         subject.email = 'explgmail'
         expect(subject).to_not be_valid
-      end 
-      it "is not valid without a email" do
+      end
+      it 'is not valid without a email' do
         subject.email = nil
         expect(subject).to_not be_valid
       end
-      it "is not valid without a password" do 
+      it 'is not valid without a password' do
         subject.password = nil
         expect(subject).to_not be_valid
       end
-      it "is not valid with a password shorter than 6 characters " do 
+      it 'is not valid with a password shorter than 6 characters ' do
         subject.password = 'pass'
         expect(subject).to_not be_valid
       end

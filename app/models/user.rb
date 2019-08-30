@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User model
 class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   # Include default devise modules. Others available are:
