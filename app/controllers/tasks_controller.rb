@@ -4,9 +4,24 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.all
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data @task.to_csv }
+    end
+  end
+
   def show
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+      format.csv { send_data @task.to_csv }
+    end
   end
 
   def new
