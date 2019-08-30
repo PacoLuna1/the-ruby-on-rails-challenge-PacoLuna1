@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  <% @lists.each do |list| %>
+    <h1>List</h1>
+    <%= list.title %>
+    <h4>Tasks</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>details</th>
+          <th>date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% list.tasks.each do |task| %>
+          <tr>
+              <td><%= task.title %></td>
+              <td><%= task.details %></td>
+              <td><%= task.date %></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+  <% end %>
+  </body>
+</html>
