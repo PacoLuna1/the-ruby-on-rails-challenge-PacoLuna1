@@ -1,17 +1,20 @@
+# frozen_string_literal: true
+
+# Tasks controller
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
-   @list = List.find(params[:list_id])
-   @task = @list.tasks.find(params[:id])
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.find(params[:id])
   end
-  
-  def new 
+
+  def new
     @list = List.find(params[:list_id])
     @task = @list.tasks.new
   end
 
-  def create 
+  def create
     @list = List.find(params[:list_id])
     @task = @list.tasks.create(task_params)
     redirect_to list_path(@list)
@@ -31,17 +34,17 @@ class TasksController < ApplicationController
       render 'edit'
     end
   end
-   
+
   def destroy
     @list = List.find(params[:list_id])
     @task = @list.tasks.find(params[:id])
-    @task.destroy 
+    @task.destroy
     redirect_to list_path(@list)
   end
-  
-  private 
 
-    def task_params
-      params.require(:task).permit(:title, :details, :date)
-    end
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :details, :date)
+  end
 end

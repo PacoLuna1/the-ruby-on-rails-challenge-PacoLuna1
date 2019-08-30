@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :lists do 
+  resources :lists do
     resources :tasks
   end
   devise_for :users
