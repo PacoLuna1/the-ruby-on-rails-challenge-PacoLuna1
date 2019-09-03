@@ -33,6 +33,10 @@ gem 'rails-controller-testing'
 # gem 'mini_magick', '~> 4.8'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'sidekiq'
+gem "letter_opener", :group => :development
+gem 'sidekiq-scheduler'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Reduces boot times through caching; required in config/boot.rb
