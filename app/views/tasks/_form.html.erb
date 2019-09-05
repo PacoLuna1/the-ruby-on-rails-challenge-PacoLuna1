@@ -1,28 +1,37 @@
-<%= form_with(model: [task.list, task], local: true) do |form| %>
- <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div>
+  <%= image_tag('background-task.jpg', class:"w-100 h-100") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute h-80 w-25", style='top:300px;left:700px;'>
+    <div class=" col-md-12 ">
+      <%= form_with(model: [task.list, task], local: true) do |form| %>
+        <% if task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+          <ul>
+          <% task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <div class="row m-0 ">
+          <%= form.label :title %>
+          <%= form.text_field :title, class:"form-control w-100 p-3" %>
+        </div>
+        <br/>
+        <div class="row m-0">
+          <%= form.label :details %>
+          <%= form.text_area :details, class:"form-control w-100 p-3" %>
+        </div>
+        <br/>
+        <div class="row m-0 d-flex justify-content-center">
+          <%= form.date_select :date%>
+        </div>
+        <br/>
+        <div class="actions">
+          <%= form.submit class:"btn btn-success col-12" %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="field">
-    <%= form.label :details %>
-    <%= form.text_area :details %>
-  </div>
-
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  </button>
+</div>

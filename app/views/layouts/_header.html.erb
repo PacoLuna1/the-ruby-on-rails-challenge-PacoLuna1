@@ -3,8 +3,24 @@
       <div class="col-md-1">
         <%=link_to image_tag("Logo-T.png", style: "height:100px "), root_path %>
       </div>
-      <div class="col-md-9">
-        <%= link_to 'HOME', root_path, class: "text-white h5 bg-transparent text-decoration-none"%>
+      <div class="col-md-8">
+        <%= link_to 'HOME', root_path, class: "text-white h5 bg-transparent text-decoration-none  ml-4"%>
+        <% if user_signed_in? %>
+          <%= link_to 'LISTS', lists_path, class: "text-white h5 bg-transparent  text-decoration-none  ml-5" %>
+        <%end%>
+      </div>
+      <div class="col-md-1">
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <button class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%=image_tag('user.svg',class:"w-50")%>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to('Edit profile', edit_user_registration_path,class:"dropdown-item") %>
+              <%= link_to('View profile', user_path(current_user),class:"dropdown-item")%>
+            </div>
+          </div>
+        <% end %>
       </div>
       <div class="col-md-1">
         <% if user_signed_in? %>

@@ -1,5 +1,3 @@
-<h1>Editing Task</h1>
-
 <%= render 'form', task: @task %>
 
-<%= link_to 'Back', @list %>
+<%= link_to(image_tag('left-arrow.svg', size:"20x20",class:'m-4'), @list, class:' text-decoration-none bg-transparent') %>
