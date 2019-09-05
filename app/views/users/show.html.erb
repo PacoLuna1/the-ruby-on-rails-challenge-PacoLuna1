@@ -1,6 +1,14 @@
-<h1><%= @user.name %></h1>
-<br/>
-<h2><%= @user.description %></h2>
+<div class="row m-0 h-100">
 
-  <%= link_to 'Back', lists_path%> 
+  <div class=" col-md-12 d-flex align-items-center flex-column justify-content-center">
+    <%= image_tag("background-profile.jpg", size:"500x330" )%>
+    <h1 class="mb-4"><%= @user.name %></h1>
+    <h5><%= @user.description %></h5>
+    <br/>
+    <div class="d-flex">
+      <%= link_to "Home", root_path , class:' text-decoration-none mr-2 bg-transparent'%> 
+      <%= link_to "Edit",  edit_user_registration_path, class:"text-decoration-none bg-transparent"%> 
+    </div>
+  </div>
+</div>
 
