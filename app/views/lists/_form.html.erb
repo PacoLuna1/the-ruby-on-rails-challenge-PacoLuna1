@@ -1,21 +1,29 @@
-<%= form_with(model: list, local: true) do |form| %>
-  <% if list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+<div>
+  <%= image_tag('background-list.jpg', class:"w-100 h-100") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute h-80 w-25", style='top:300px;left:700px;'>
+    <div class=" col-md-12 ">
+      <%= form_with(model: list, local: true) do |form| %>
+        <% if list.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
 
-      <ul>
-      <% list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% list.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row m-0">
+          <%= form.label :title %>
+          <%= form.text_field :title, class:"form-control w-100 p-3" %>
+        </div>
+        <br/>
+        <div class="actions">
+          <%= form.submit class:"btn btn-success col-12" %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  </button>
+</div>

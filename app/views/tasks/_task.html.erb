@@ -1,25 +1,27 @@
-<table>
-  <thead>
+<table class="table w-100 text-left ">
+  <thead class="thead-dark">
     <tr>
       <th>Title</th>
       <th>details</th>
       <th>date</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
-
-  <% tasks.each do |task| %>
-    <tr>
-        <td><%= task.title %></td>
-        <td><%= task.details %></td>
-        <td><%= task.date %></td>
-        <td><%= link_to 'Destroy', [task.list, task],
-                        method: :delete,
-                        data: { confirm: 'Are you sure?'} %>
-        </td>
-        <td><%= link_to 'Edit',edit_list_task_path(task.list, task) %></td>
-        <td><%= link_to 'Show',[task.list, task] %></td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr>
+        <td class="w-25 p-3"><%= task.title %></td>
+        <td class="w-25 p-3"><%= task.details %></td>
+        <td class="w-25 p-3"><%= task.date %></td>
+       
+        <td  style="width:2%"><%= link_to(image_tag('eye.svg', size:"20x20"), [task.list, task] , class:"text-decoration-none bg-transparent")%></td>
+        <td  style="width:2%"><%= link_to(image_tag('edit.svg', size:"20x20"), edit_list_task_path(task.list, task), class:"text-decoration-none bg-transparent") %></td>
+        <td  style="width:2%"><%= link_to(image_tag('remove.svg', size:"20x20"),  [task.list, task], method: :delete, data: { confirm: 'Are you sure?' }, class:"text-decoration-none bg-transparent") %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+<hr/>
  
