@@ -32,7 +32,11 @@ class TasksController < ApplicationController
   def create
     @list = List.find(params[:list_id])
     @task = @list.tasks.create(task_params)
-    redirect_to list_path(@list)
+    if @task.save
+      redirect_to list_path(@list)
+    else
+      render 'new'
+    end
   end
 
   def edit
