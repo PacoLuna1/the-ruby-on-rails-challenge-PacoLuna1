@@ -5,20 +5,12 @@
     <div class=" col-md-12 ">
       <%= form_with(model: list, local: true) do |form| %>
         <% if list.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
-
-            <ul>
             <% list.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+              <p class="btn btn-danger m-1 " ><%= message %></p>
             <% end %>
-            </ul>
-          </div>
         <% end %>
-        <div class="row m-0">
-          <%= form.label :title %>
+          <h3>Title</h3>
           <%= form.text_field :title, class:"form-control w-100 p-3" %>
-        </div>
         <br/>
         <div class="actions">
           <%= form.submit class:"btn btn-success col-12" %>
