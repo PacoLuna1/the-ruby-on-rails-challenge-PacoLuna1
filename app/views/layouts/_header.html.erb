@@ -12,10 +12,10 @@
       <div class="col-md-1">
         <% if user_signed_in? %>
           <div class="dropdown">
-            <button class="btn btn-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-link" data-toggle="dropdown">
               <%=image_tag('user.svg',class:"w-50")%>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" >
               <%= link_to('Edit profile', edit_user_registration_path,class:"dropdown-item") %>
               <%= link_to('View profile', user_path(current_user),class:"dropdown-item")%>
             </div>
@@ -24,9 +24,9 @@
       </div>
       <div class="col-md-1">
         <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-danger text-white my-2 my-sm-0") %>        
+          <%= link_to('SIGN OUT', destroy_user_session_path, method: :delete, class:"btn btn-danger text-white my-2 my-sm-0") %>        
         <% else %>
-          <%= link_to('Login', new_user_session_path, class: "btn btn-success text-white  my-2 my-sm-0") %>
+          <%= link_to('SIGN IN', new_user_session_path, class: "btn btn-success text-white  my-2 my-sm-0") %>
         <% end %>
       </div>
     </div>

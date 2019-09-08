@@ -1,7 +1,7 @@
 <div>
   <%= image_tag('background-task.jpg', class:"w-100 h-100") %>
   <%= render 'layouts/header'%>
-  <button class="btn btn-light bg-white position-absolute w-25", style='top:300px;left:700px;'>
+  <button class="btn btn-light bg-white position-absolute w-25 text-left", style='top:300px;left:700px;'>
     <div class=" col-md-12 ">
       <%= form_with(model: [task.list, task], local: true) do |form| %>
        <% if task.errors.any? %>
@@ -9,15 +9,14 @@
             <p class="btn btn-danger m-1 " ><%= message %></p>
           <% end %>
         <% end %>
-        <h3>Title</h3>
-          <%= form.text_field :title, class:"form-control w-100 p-3" %>
+        <h4>Title:</h4>
+          <%= form.text_field :title, class:"form-control w-100 p-3", id:'Title_task' %>
         <br/>
-        <h3>Details</h3>
-          <%= form.text_area :details, class:"form-control w-100 p-3" %>
+        <h4>Details:</h4>
+          <%= form.text_area :details, class:"form-control w-100 p-3", id:'Details_task' %>
         <br/>
-        <div class="row m-0 d-flex justify-content-center">
-          <%= form.date_select :date%>
-        </div>
+        <h4>Date:</h4>
+        <%= form.date_field :date,class:"form-control w-100 ", id:'Date_task'%>
         <br/>
         <div class="actions">
           <%= form.submit class:"btn btn-success col-12" %>
