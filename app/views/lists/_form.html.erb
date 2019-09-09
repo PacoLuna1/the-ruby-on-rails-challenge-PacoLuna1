@@ -1,0 +1,21 @@
+<div>
+  <%= image_tag('background-list.jpg', class:"w-100 h-100") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute h-80 w-25", style='top:300px;left:700px;'>
+    <div class=" col-md-12 ">
+      <%= form_with(model: list, local: true) do |form| %>
+        <% if list.errors.any? %>
+            <% list.errors.full_messages.each do |message| %>
+              <p class="btn btn-danger m-1 " ><%= message %></p>
+            <% end %>
+        <% end %>
+          <h3>Title</h3>
+          <%= form.text_field :title, class:"form-control w-100 p-3", id:'Title'  %>
+        <br/>
+        <div class="actions">
+          <%= form.submit class:"btn btn-success col-12" %>
+        </div>
+      <% end %>
+    </div>
+  </button>
+</div>

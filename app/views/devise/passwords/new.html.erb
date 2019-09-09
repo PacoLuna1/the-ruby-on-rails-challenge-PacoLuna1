@@ -1,0 +1,18 @@
+<div class="row m-0 h-100">
+  <div class="col-md-7  p-0">
+    <%= image_tag("books_signin.jpeg", class: "h-100 w-100" )%>
+  </div>
+  <div class=" col-md-5 d-flex justify-content-center align-items-center text-center">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource%>
+  <h2>Forgot your password?</h2>
+    <br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-100 p-3", placeholder: "Email" %>
+    <br />
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", class: "btn btn-warning col-12" %>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+  </div>
+</div>

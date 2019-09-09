@@ -1,0 +1,18 @@
+<div class="row m-0 h-100">
+
+  <div class=" col-md-12 d-flex align-items-center flex-column justify-content-center">
+    <div style="width:400px">
+      <%= image_tag(@user.avatar, class:'w-100') if @user.avatar.attached? %>
+    </div>
+    <br/>
+    <h1 class="mb-4"><%= @user.name %></h1>
+    <h5><%= @user.email %></h5>
+    <h5><%= @user.description %></h5>
+    <br/>
+    <div class="d-flex">
+      <%= link_to "Home", root_path , class:' text-decoration-none mr-2 bg-transparent'%> 
+      <%= link_to "Edit",  edit_user_registration_path, class:"text-decoration-none bg-transparent"%> 
+    </div>
+  </div>
+</div>
+

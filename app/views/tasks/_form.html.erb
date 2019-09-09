@@ -1,0 +1,27 @@
+<div>
+  <%= image_tag('background-task.jpg', class:"w-100 h-100") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute w-25 text-left", style='top:300px;left:700px;'>
+    <div class=" col-md-12 ">
+      <%= form_with(model: [task.list, task], local: true) do |form| %>
+       <% if task.errors.any? %>
+          <% task.errors.full_messages.each do |message| %>
+            <p class="btn btn-danger m-1 " ><%= message %></p>
+          <% end %>
+        <% end %>
+        <h4>Title:</h4>
+          <%= form.text_field :title, class:"form-control w-100 p-3", id:'Title_task' %>
+        <br/>
+        <h4>Details:</h4>
+          <%= form.text_area :details, class:"form-control w-100 p-3", id:'Details_task' %>
+        <br/>
+        <h4>Date:</h4>
+        <%= form.date_field :date,class:"form-control w-100 ", id:'Date_task'%>
+        <br/>
+        <div class="actions">
+          <%= form.submit class:"btn btn-success col-12" %>
+        </div>
+      <% end %>
+    </div>
+  </button>
+</div>

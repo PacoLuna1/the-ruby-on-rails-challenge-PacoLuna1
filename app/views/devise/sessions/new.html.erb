@@ -1,0 +1,21 @@
+<div class="row m-0 h-100">
+  <div class="col-md-7  p-0">
+    <%= image_tag("books_signin.jpeg", class: "h-100 w-100" )%>
+  </div>
+  <div class=" col-md-5 d-flex justify-content-center align-items-center text-center">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h2>ACCOUNT LOGIN</h2>
+    <br />
+    <div class="row m-0">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-50 p-3", placeholder: "Email" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-50 p-3", placeholder: "Password" %>
+    </div>
+        <br />
+    <div class="actions">
+      <%= f.submit "SIGN IN", class: "btn btn-success col-12" %>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+  </div>
+</div>
+

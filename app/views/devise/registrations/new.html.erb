@@ -1,0 +1,31 @@
+<div class="row m-0 h-100">
+  <div class=" col-md-7 p-0">
+    <%= image_tag("books_signin.jpeg", class: "h-100 w-100" )%>
+  </div>
+  <div class=" col-md-5 d-flex justify-content-center align-items-center text-center p-4">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {style: "width: 400px "} ) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+      <h2 >SIGN UP</h2>
+      <br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control w-100 p-3", placeholder: "Name" %>    
+      <br/>
+      <%= f.text_area :description, autofocus: true, autocomplete: "description", class: "form-control w-100 p-3", placeholder: "Description" %>
+      <br/>
+      <%= f.email_field :email, autocomplete: "email", class: "form-control w-100 p-3", placeholder: "Email" %>
+
+      <% if @minimum_password_length %>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control w-100 p-3", placeholder: "Password(6 characters minimum)" %>
+      <br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control w-100 p-3", placeholder: "Password Confirmation" %>
+      <br/>     
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar%>
+      <div class="actions mt-3">
+        <%= f.submit "SIGN UP", class: "btn btn-primary col-12" %>
+      </div>
+      <br/>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

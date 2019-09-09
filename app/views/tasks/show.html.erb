@@ -1,0 +1,22 @@
+<div>
+  <%= image_tag('background-task.jpg', class:"w-100 h-100") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute h-80 w-25", style='top:300px;left:700px;'>
+    <div class=" col-md-12 ">
+      <p>
+        <strong>Title:</strong>
+        <%= @task.title %>
+      </p>
+      <p>
+        <strong>Details:</strong>
+        <%= @task.details %>
+      </p>
+       <p>
+        <strong>Date:</strong>
+        <%= @task.date %>
+      </p>
+    </div>
+  </button>
+</div>
+
+<%= link_to(image_tag('left-arrow.svg', size:"20x20",class:'m-4'), @list, class:' text-decoration-none bg-transparent') %>

@@ -1,0 +1,7 @@
+<% if resource.errors.any? %>
+  <ul class="row p-1">
+    <% resource.errors.full_messages.each do |message| %>
+      <button class="btn btn-danger m-1 " ><%= message %></button>
+    <% end %> 
+  </ul>
+<% end %>

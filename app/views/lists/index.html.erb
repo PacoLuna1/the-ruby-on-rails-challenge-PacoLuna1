@@ -1,0 +1,33 @@
+<div>
+  <%= image_tag('title-list.png', class:'position-absolute ', size:'400x200', style:'top:300px; left:750px') %>
+  <%= image_tag('background-list.jpg', class:"w-100 ") %>
+  <%= render 'layouts/header'%>
+  <button class="btn btn-light bg-white position-absolute mb-5 ", style='width:600px;top:700px;left:650px'>
+    <table class="table w-100 text-left">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Title</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lists.each do |list| %>
+          <tr>  
+            <td class="w-25 p-3"><%= list.title %></td>
+            <td style="width:2%"><%= link_to(image_tag('eye.svg'), list , class:"text-decoration-none bg-transparent", id:'show')%></td>
+            <td style="width:2%"><%= link_to(image_tag('edit.svg'), edit_list_path(list), class:"text-decoration-none bg-transparent", id:'edit') %></td>
+            <td style="width:2%"><%= link_to(image_tag('remove.svg', size:"20x20"), list, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-decoration-none bg-transparent",  id:'delete') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr/>
+    <%= link_to(image_tag('plus.svg',style:"width:30px"), new_list_path, class:"text-decoration-none bg-transparent", id:'plus' )  %>
+    <hr/><br>
+      <strong scope="col">Export to <%= link_to('PDF', "#{lists_path}.pdf",class:"text-decoration-none bg-transparent") %> or
+                                <%= link_to('CSV', "#{lists_path}.csv",class:"text-decoration-none bg-transparent") %></Strong>
+  </button>
+  <div ></div>
+</div>

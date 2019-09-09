@@ -1,0 +1,25 @@
+<div class="row m-0 h-100">
+  <div class=" col-md-7 p-0">
+    <%= image_tag("books_signin.jpeg", class: "h-100 w-100" )%>
+  </div>
+  <div class=" col-md-5 d-flex justify-content-center align-items-center text-center p-4">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+    <h2>Change your password</h2>
+      <br />
+      <% if @minimum_password_length %>
+      <br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control w-100 p-3", placeholder: "New password"  %>
+      <br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control w-100 p-3",placeholder: "Confirm new password"  %>
+      <br/>
+    <div class="actions">
+      <%= f.submit "Change my password" , class: "btn btn-danger col-12" %>
+    </div>
+    <br/>
+    <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

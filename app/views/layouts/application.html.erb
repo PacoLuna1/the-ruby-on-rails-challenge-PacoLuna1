@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en" style="height:100%;" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <body class="h-100 bg-light">
+    <h6 class="notice position-absolute text-white"><%= notice %></h6>
+    <h6 class="alert position-absolute text-white"><%= alert  %></h6>
     <%= yield %>
   </body>
 </html>
