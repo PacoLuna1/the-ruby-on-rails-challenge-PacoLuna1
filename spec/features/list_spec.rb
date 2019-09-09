@@ -8,37 +8,37 @@ RSpec.describe 'ListViews', type: :feature do
     login_as(user, scope: :user)
   end
 
-  it 'has a list index' do 
+  it 'has a list index' do
     visit root_path
     click_link('LISTS')
     expect(page).to have_css('table', text: 'Title')
   end
 
-  it 'has a form to create new list' do 
+  it 'has a form to create new list' do
     visit lists_path
     click_link('plus')
     expect(page).to have_css('form', text: 'Title')
   end
 
-  it 'has a show view' do 
+  it 'has a show view' do
     list_with('Exampletitle')
     click_link('show')
-    expect(page).to have_css('table',text:'Title Details Date')
+    expect(page).to have_css('table', text: 'Title Details Date')
     expect(page).to have_content('Exampletitle')
   end
 
-  it 'has a edit view' do 
+  it 'has a edit view' do
     list_with('Exampletitle')
     click_link('edit')
-    expect(page).to have_css("form",text:'Title')
+    expect(page).to have_css('form', text: 'Title')
   end
 
-  it 'can create new list' do 
+  it 'can create new list' do
     list_with('Exampletitle')
     expect(page).to have_content('Exampletitle')
   end
 
-  it 'can edit a list' do 
+  it 'can edit a list' do
     list_with('Exampletitle')
     click_link('edit')
     fill_in 'Title', with: 'NewExampletitle'
@@ -47,7 +47,7 @@ RSpec.describe 'ListViews', type: :feature do
     expect(page).to have_content('NewExampletitle')
   end
 
-  it 'can delete a list' do 
+  it 'can delete a list' do
     list_with('Exampletitle')
     click_link('delete')
     expect(page).to_not have_content('Exampletitle')

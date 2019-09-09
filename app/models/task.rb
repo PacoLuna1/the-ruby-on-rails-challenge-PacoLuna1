@@ -6,7 +6,7 @@ class Task < ApplicationRecord
   validates :title, presence: true,
                     length: { minimum: 5 }
   def self.to_csv
-    attributes = %w{ title details date }
+    attributes = %w[title details date]
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
