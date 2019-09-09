@@ -1,7 +1,10 @@
 <div class="row m-0 h-100">
 
   <div class=" col-md-12 d-flex align-items-center flex-column justify-content-center">
-    <%= image_tag("background-profile.jpg", size:"500x330" )%>
+    <div style="width:400px">
+      <%= image_tag(@user.avatar, class:'w-100') if @user.avatar.attached? %>
+    </div>
+    <br/>
     <h1 class="mb-4"><%= @user.name %></h1>
     <h5><%= @user.email %></h5>
     <h5><%= @user.description %></h5>

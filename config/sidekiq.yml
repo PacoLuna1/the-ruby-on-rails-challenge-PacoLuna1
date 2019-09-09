@@ -1,4 +1,4 @@
 :schedule:
   Weekly_Pending_Tasks_Job:
-    cron: '0 * * * * *'  
+    cron: '0 4 * * 1 *'  
     class: WeeklyPendingTasksJob

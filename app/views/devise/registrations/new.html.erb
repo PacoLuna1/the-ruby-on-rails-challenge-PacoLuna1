@@ -19,7 +19,9 @@
       <br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control w-100 p-3", placeholder: "Password Confirmation" %>
       <br/>     
-      <div class="actions">
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar%>
+      <div class="actions mt-3">
         <%= f.submit "SIGN UP", class: "btn btn-primary col-12" %>
       </div>
       <br/>

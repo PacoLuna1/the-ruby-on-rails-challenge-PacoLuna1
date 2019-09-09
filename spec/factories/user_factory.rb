@@ -6,6 +6,9 @@ FactoryBot.define do
     email { 'tes@example.com' }
     description { 'holaamigos' }
     password { 'f4k3p455w0rd' }
+    trait :with_avatar do
+      avatar { FilesTestHelper.png }
+    end
     # using dynamic attributes over static attributes in FactoryBot
 
     # if needed
