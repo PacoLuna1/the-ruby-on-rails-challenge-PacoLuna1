@@ -10,8 +10,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <body class="h-100 bg-light">
-  <p class="notice position-absolute"><%= notice %></p>
-  <p class="alert position-absolute"><%= alert  %></p>
+    <h6 class="notice position-absolute text-white"><%= notice %></h6>
+    <h6 class="alert position-absolute text-white"><%= alert  %></h6>
     <%= yield %>
   </body>
 </html>
