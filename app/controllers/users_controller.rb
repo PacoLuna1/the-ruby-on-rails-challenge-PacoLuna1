@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     user.confirmed_at = Time.now
     user.save
   end
+
   def show
     if current_user.id == params[:id].to_i
       @user = User.find(params[:id])

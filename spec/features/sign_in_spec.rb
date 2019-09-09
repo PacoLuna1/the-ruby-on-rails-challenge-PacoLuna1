@@ -4,29 +4,29 @@ require 'spec_helper'
 
 RSpec.describe 'UserSignIn', type: :feature do
   before :each do
-    user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:user)
   end
 
   it 'with valid email and password' do
-    sign_in_with 'tes@example.com', 'f4k3p455w0rd'
+    sign_in_with(@user.email, @user.password)
 
     expect(page).to have_content('SIGN OUT')
   end
 
   it 'with invalid email' do
-    sign_in_with 'testexample.com', 'f4k3p455w0rd'
+    sign_in_with('testexample.com', @user.password)
 
     expect(page).to have_button('SIGN IN')
   end
 
   it 'with blank password' do
-    sign_in_with 'test@example.com', ''
+    sign_in_with(@user.email, '')
 
     expect(page).to have_button('SIGN IN')
   end
 
   it 'with a password with less than 6 words' do
-    sign_in_with 'test@example.com', 'f4k3'
+    sign_in_with(@user.email, 'f4k3')
 
     expect(page).to have_button('SIGN IN')
   end
